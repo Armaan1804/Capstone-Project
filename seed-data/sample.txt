@@ -1,0 +1,32 @@
+Sample Document Content
+
+This is a sample document for testing the OCR functionality of the MERN Document Search application.
+
+The document contains various types of text that should be easily recognizable by the OCR engine:
+
+1. Headers and Titles
+2. Numbered Lists
+3. Bullet Points
+   • Sub-items
+   • Additional content
+
+Regular paragraphs with normal text flow. This text should be processed correctly by Tesseract.js and become searchable through the MongoDB text index.
+
+Technical Terms:
+- MongoDB
+- Express.js
+- React
+- Node.js
+- Tesseract.js
+- OCR (Optical Character Recognition)
+- BullMQ
+- Redis
+
+Contact Information:
+Email: test@example.com
+Phone: (555) 123-4567
+Address: 123 Main Street, City, State 12345
+
+This document serves as test data for the search functionality. Users should be able to search for any of the terms mentioned above and receive highlighted results showing the context where these terms appear.
+
+End of sample document.

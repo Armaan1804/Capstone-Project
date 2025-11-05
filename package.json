@@ -1,0 +1,28 @@
+{
+  "name": "mern-document-search",
+  "version": "1.0.0",
+  "description": "Full MERN Document Search with OCR",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "worker"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:backend && npm run install:frontend && npm run install:worker",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:worker": "cd worker && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:worker": "cd worker && npm run dev",
+    "test": "npm run test:backend",
+    "test:backend": "cd backend && npm test",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
