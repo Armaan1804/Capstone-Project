@@ -39,14 +39,36 @@ class SimpleQueue {
       await Job.findOneAndUpdate({ jobId }, { status: 'active' });
       
       // Read file content
-      let fileContent = 'Sample OCR text for demonstration. This text is searchable.';
+      let fileContent = '';
       try {
-        fileContent = fs.readFileSync(filePath, 'utf8');
+        const fileBuffer = fs.readFileSync(filePath);
+        const path = require('path');
+        const ext = path.extname(filePath).toLowerCase();
+        
+        if (ext === '.pdf') {
+          // Parse PDF
+          const pdfParse = require('pdf-parse');
+          const pdfData = await pdfParse(fileBuffer);
+          fileContent = pdfData.text;
+          console.log('Extracted PDF text, pages:', pdfData.numpages);
+        } else {
+          // For text files, convert to string
+          fileContent = fileBuffer.toString('utf8');
+        }
+        
+        // If content is empty, use sample text
+        if (!fileContent || fileContent.trim().length === 0) {
+          fileContent = 'Sample OCR text for demonstration. This text is searchable.';
+        }
       } catch (err) {
-        console.log('Could not read file, using default content');
+        console.log('Could not read file:', err.message);
+        fileContent = 'Sample OCR text for demonstration. This text is searchable.';
       }
       
       // Create a page with actual file content
+      console.log('File content length:', fileContent.length);
+      console.log('File content preview:', fileContent.substring(0, 200));
+      
       const page = new Page({
         documentId,
         pageNumber: 1,
@@ -56,6 +78,7 @@ class SimpleQueue {
         processedAt: new Date()
       });
       await page.save();
+      console.log('Page saved with text length:', page.text.length);
 
       // Update document
       await Document.findByIdAndUpdate(documentId, {

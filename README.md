@@ -4,10 +4,10 @@ A full-stack web application for uploading documents, extracting text using OCR,
 
 ## Features
 
-- **Document Upload**: Support for PDF, images, and text files
-- **OCR Processing**: Automatic text extraction from uploaded documents
+- **Document Upload**: Support for PDF and text files
+- **PDF Text Extraction**: Automatic text extraction from PDF documents using pdf-parse
 - **Real-time Updates**: WebSocket-based job progress tracking
-- **Full-text Search**: Search across all processed documents
+- **Full-text Search**: Search across all processed documents with MongoDB text indexing
 - **Document Management**: View and manage all uploaded documents
 - **Document Viewer**: View processed documents with extracted text
 - **Job Management**: Track processing status and progress
@@ -222,8 +222,8 @@ npm run dev
 ### Queue System
 The application uses a simple in-memory queue for demo purposes. For production, consider implementing Redis-based queues.
 
-### OCR Processing
-Currently uses mock OCR processing. Integrate with services like Tesseract.js or cloud OCR APIs for production.
+### PDF Processing
+Uses pdf-parse library to extract text from PDF documents. For image-based PDFs or scanned documents, consider integrating Tesseract.js or cloud OCR services.
 
 ### File Storage
 Files are stored locally in the `uploads` directory. For production, consider cloud storage solutions.
@@ -256,6 +256,18 @@ Files are stored locally in the `uploads` directory. For production, consider cl
 3. Make your changes
 4. Test thoroughly
 5. Submit a pull request
+
+## Clearing Data
+
+To clear all uploaded documents and database records:
+
+```bash
+# Delete uploaded files
+del /Q backend/uploads/*.*
+
+# Clear database collections
+mongosh document-search --eval "db.documents.deleteMany({}); db.pages.deleteMany({}); db.jobs.deleteMany({});"
+```
 
 ## License
 
