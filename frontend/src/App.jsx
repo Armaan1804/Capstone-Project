@@ -18,8 +18,8 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <FileText className="h-8 w-8 text-primary-600" />
-            <span className="text-xl font-bold text-gray-900">DocSearch</span>
+            <FileText className="h-8 w-8 text-red-600" />
+            <span className="text-xl font-bold text-gray-900">Document Searcher</span>
           </Link>
           
           <div className="flex space-x-8">
@@ -27,7 +27,7 @@ const Navigation = () => {
               to="/upload"
               className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors ${
                 isActive('/upload')
-                  ? 'bg-primary-100 text-primary-700'
+                  ? 'bg-red-100 text-red-700'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -39,7 +39,7 @@ const Navigation = () => {
               to="/search"
               className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors ${
                 isActive('/search')
-                  ? 'bg-primary-100 text-primary-700'
+                  ? 'bg-red-100 text-red-700'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -51,7 +51,7 @@ const Navigation = () => {
               to="/documents"
               className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors ${
                 isActive('/documents')
-                  ? 'bg-primary-100 text-primary-700'
+                  ? 'bg-red-100 text-red-700'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -69,7 +69,7 @@ const HomePage = () => {
   return (
     <div className="max-w-4xl mx-auto p-6 text-center">
       <div className="mb-12">
-        <FileText className="h-16 w-16 text-primary-600 mx-auto mb-4" />
+        <FileText className="h-16 w-16 text-red-600 mx-auto mb-4" />
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Document OCR & Search
         </h1>
@@ -80,7 +80,7 @@ const HomePage = () => {
 
       <div className="grid md:grid-cols-3 gap-8 mb-12">
         <div className="card text-center">
-          <Upload className="h-12 w-12 text-primary-600 mx-auto mb-4" />
+          <Upload className="h-12 w-12 text-red-600 mx-auto mb-4" />
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Upload Documents</h3>
           <p className="text-gray-600 mb-4">
             Upload PDF, images, or text files for OCR processing
@@ -91,7 +91,7 @@ const HomePage = () => {
         </div>
 
         <div className="card text-center">
-          <Activity className="h-12 w-12 text-primary-600 mx-auto mb-4" />
+          <Activity className="h-12 w-12 text-red-600 mx-auto mb-4" />
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Track Progress</h3>
           <p className="text-gray-600 mb-4">
             Monitor OCR processing with real-time updates
@@ -102,7 +102,7 @@ const HomePage = () => {
         </div>
 
         <div className="card text-center">
-          <SearchIcon className="h-12 w-12 text-primary-600 mx-auto mb-4" />
+          <SearchIcon className="h-12 w-12 text-red-600 mx-auto mb-4" />
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Search Content</h3>
           <p className="text-gray-600 mb-4">
             Find text across all your processed documents
@@ -117,7 +117,7 @@ const HomePage = () => {
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">How it works</h2>
         <div className="grid md:grid-cols-4 gap-6 text-left">
           <div className="flex items-start">
-            <div className="bg-primary-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">
+            <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">
               1
             </div>
             <div>
@@ -126,7 +126,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="flex items-start">
-            <div className="bg-primary-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">
+            <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">
               2
             </div>
             <div>
@@ -135,7 +135,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="flex items-start">
-            <div className="bg-primary-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">
+            <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">
               3
             </div>
             <div>
@@ -144,7 +144,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="flex items-start">
-            <div className="bg-primary-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">
+            <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">
               4
             </div>
             <div>
